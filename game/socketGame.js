@@ -15,7 +15,7 @@ function createWindow()
        show: true,
      })
 
-    win.loadURL(__dirname+"index.html");
+    win.loadURL(__dirname+"/index.html");
     //win.show();
 }
 

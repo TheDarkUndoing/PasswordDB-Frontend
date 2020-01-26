@@ -1,0 +1,19 @@
+{
+  "name": "passwordDB",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^7.1.10"
+  },
+  "dependencies": {
+    "materialize-css": "^1.0.0",
+    "mysql": "^2.18.1",
+    "properties-reader": "^1.0.0"
+  }
+}
