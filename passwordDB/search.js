@@ -10,7 +10,7 @@ const database = properties.get('db.database')
 
 
 
-async function searchQuery()
+function searchQuery()
 {
 
   var con = mysql.createConnection({
@@ -20,22 +20,18 @@ async function searchQuery()
     database: database
   });
 
- var response;
-  var query = document.getElementById("search-text").value
 
-  con.connect(async function(err,result) {
-  if (err) throw err;
-  con.query("SELECT passwords FROM password_by_user WHERE username='siapppbx@mail.ru'"+query+"", async function (err, result, fields) {
-    if (err) throw err;
-    let promise = new Promise(function(resolve, reject) {
-      resolve(result, async function () {response = result; });
-      return await result
-      console.log(result);
-      //return result;
-    });
-    return await result
+  var query =   document.getElementById("search-text").value
+
+  return  con.connect( (err,result) => {
+  //if (err) throw err;
+return con.query("SELECT passwords FROM password_by_user WHERE username='"+query+"'", (err, result) => {
+    con.close()
   });
-  return await result
 });
-//console.log(promise);
+}
+
+async function main()
+{
+  a = await searchQuery()
 }
