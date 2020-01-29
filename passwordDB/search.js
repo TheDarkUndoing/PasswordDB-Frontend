@@ -10,28 +10,33 @@ const database = properties.get('db.database')
 
 
 
-function searchQuery()
+async function searchQuery()
 {
 
-  var con = mysql.createConnection({
+  var con = mysql.createPool({
+    connectionLimit: 5,
     host: host,
     user: user,
     password: password,
     database: database
   });
-
-
   var query =   document.getElementById("search-text").value
-
-  return  con.connect( (err,result) => {
-  //if (err) throw err;
-return con.query("SELECT passwords FROM password_by_user WHERE username='"+query+"'", (err, result) => {
-    con.close()
+  con.getConnection( async (err,connection) =>
+  {
+    if (err) throw err;
+    con.query("SELECT passwords FROM password_by_user WHERE username='"+query+"'", async (err, result) =>
+    {
+      document.getElementById("result").innerHTML = result[0].passwords;
+    });
+    connection.destroy();
   });
-});
+
 }
 
-async function main()
+async function handleSearch()
 {
-  a = await searchQuery()
+  //console.log(window.result)
+  await searchQuery()
+  setTimeout(() =>{document.getElementById("result").innerHTML = window.result[0].passwords;},500);
+
 }
