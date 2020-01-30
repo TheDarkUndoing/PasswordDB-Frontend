@@ -14,11 +14,22 @@
   <body>
     <div class="search bar">
       <input placeholder="Enter Email" id="search-text" type="text">
-      <button onclick="searchQuery()" class="btn waves-effect">Search</button>
+      <button id="search-button" onclick="searchQuery()" class="btn waves-effect">Search</button>
     </div>
     <div class="results">
       <p id="result"></p>
     </div>
+    <script>
+      var input = document.getElementById("search-text");
+      input.addEventListener("keyup", function(event)
+      {
+        if (event.keyCode === 13)
+          {
+            event.preventDefault();
+            document.getElementById("search-button").click();
+          }
+      });
+    </script>
 
   </body>
 </html>
