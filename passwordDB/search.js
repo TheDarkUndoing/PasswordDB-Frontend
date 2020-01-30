@@ -8,18 +8,18 @@ const user = properties.get('db.user')
 const password = properties.get('db.pass')
 const database = properties.get('db.database')
 
-
+var con = mysql.createPool({
+  connectionLimit: 5,
+  host: host,
+  user: user,
+  password: password,
+  database: database
+});
 
 async function searchQuery()
 {
 
-  var con = mysql.createPool({
-    connectionLimit: 5,
-    host: host,
-    user: user,
-    password: password,
-    database: database
-  });
+
   var query =   document.getElementById("search-text").value
   con.getConnection( async (err,connection) =>
   {
@@ -27,8 +27,9 @@ async function searchQuery()
     con.query("SELECT passwords FROM password_by_user WHERE username='"+query+"'", async (err, result) =>
     {
       document.getElementById("result").innerHTML = result[0].passwords;
+      console.log("searchQuery ran...")
     });
-    connection.destroy();
+    connection.release();
   });
 
 }
@@ -38,5 +39,5 @@ async function handleSearch()
   //console.log(window.result)
   await searchQuery()
   setTimeout(() =>{document.getElementById("result").innerHTML = window.result[0].passwords;},500);
-
+  console.log("handleSearch ran...")
 }
