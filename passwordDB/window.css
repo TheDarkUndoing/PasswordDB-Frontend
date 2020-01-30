@@ -1,0 +1,10 @@
+.search-window {
+  position: fixed; /* or absolute */
+  top: 25%;
+  bottom: 25%;
+  left: 25%;
+  right: 25%;
+  margin: auto;
+  padding: 20px;
+  background: #f0e68c;
+    }

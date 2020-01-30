@@ -3,6 +3,7 @@
   <head>
   <script src="./search.js"></script>
     <link rel="stylesheet" href="./node_modules/materialize-css/dist/css/materialize.min.css">
+    <link rel="stylesheet" href="window.css"
     <meta charset="utf-8">
     <title></title>
     <script type="text/javascript">
@@ -12,13 +13,16 @@
     </script>
   </head>
   <body>
-    <div class="search bar">
-      <input placeholder="Enter Email" id="search-text" type="text">
-      <button id="search-button" onclick="searchQuery()" class="btn waves-effect">Search</button>
+    <div class="search-window">
+      <div class="search bar">
+        <input placeholder="Enter Email" id="search-text" type="text">
+        <button id="search-button" onclick="searchQuery()" class="btn waves-effect">Search</button>
+      </div>
+      <div class="results">
+        <p id="result"></p>
+      </div>
     </div>
-    <div class="results">
-      <p id="result"></p>
-    </div>
+
     <script>
       var input = document.getElementById("search-text");
       input.addEventListener("keyup", function(event)
