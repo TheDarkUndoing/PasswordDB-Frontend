@@ -26,14 +26,15 @@ async function searchQuery()
     if (err) throw err;
     con.query("SELECT passwords FROM password_by_user WHERE username='"+query+"'", async (err, result) =>
     {
-      if (await result != undefined)
+      if ( result[0] != undefined)
       {
         document.getElementById("result").innerHTML = result[0].passwords;
         console.log("searchQuery ran...")
       }
       else
       {
-          alert("email not found in database")
+          //alert("email not found in database")
+           M.toast({html: "Email not found"})
       }
 
     });
