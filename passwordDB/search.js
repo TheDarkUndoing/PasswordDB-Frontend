@@ -29,7 +29,8 @@ async function searchQuery()
       if ( result[0] != undefined)
       {
         document.getElementById("result").innerHTML = result[0].passwords;
-        console.log("searchQuery ran...")
+        console.log(result[0])
+        //console.log("searchQuery ran...")
       }
       else
       {
