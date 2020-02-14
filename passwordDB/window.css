@@ -7,8 +7,14 @@
   margin: auto;
   padding: 20px;
   background: #3a3938;
+  max-height: 50%
     }
-
+div.results
+{
+  //resize: none;
+  overflow:auto
+  max-height: inherit
+}
 input#search-text, textarea {
   color: #dce7ea;
 }

@@ -28,8 +28,23 @@ async function searchQuery()
     {
       if ( result[0] != undefined)
       {
-        document.getElementById("result").innerHTML = result[0].passwords;
-        console.log(result[0])
+        var passwordList = result[0].passwords.split(",");
+        //console.log(passwordList);
+        for(var password in passwordList)
+        {
+          //console.log(passwordList[password]);
+          var list = document.getElementById('result');
+          console.log(list);
+          var entry = document.createElement('li');
+          console.log(entry);
+          entry.classList.add("collection-item");
+          entry.appendChild(document.createTextNode(passwordList[password]));
+          list.appendChild(entry);
+          //document.getElementById("result").innerHTML = result[0].passwords;
+          console.log(passwordList[password]);
+        }
+
+        //console.log(result[0])
         //console.log("searchQuery ran...")
       }
       else
