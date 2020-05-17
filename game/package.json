@@ -2,9 +2,9 @@
   "name": "game",
   "version": "1.0.0",
   "description": "fun test game",
-  "main": "socketGame.js",
+  "main": "index.js",
   "scripts": {
-    "start": "electron socketGame.js"
+    "start": "electron index.js"
   },
   "author": "\"fun\"",
   "license": "ISC",
