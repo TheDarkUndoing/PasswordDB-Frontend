@@ -1,7 +1,6 @@
 {
-  "name": "passwordDB",
+  "name": "passworddb",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "start": "electron ."
@@ -15,5 +14,6 @@
     "materialize-css": "^1.0.0",
     "mysql": "^2.18.1",
     "properties-reader": "^1.0.0"
-  }
+  },
+  "description": ""
 }
