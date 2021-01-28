@@ -9,6 +9,6 @@
   "author": "\"fun\"",
   "license": "ISC",
   "dependencies": {
-    "electron": "^7.1.10"
+    "electron": "^9.4.0"
   }
 }
