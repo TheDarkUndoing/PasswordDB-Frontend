@@ -8,7 +8,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "electron": "^7.1.10"
+    "electron": "^13.6.6"
   },
   "dependencies": {
     "materialize-css": "^1.0.0",
